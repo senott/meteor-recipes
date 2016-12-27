@@ -1,3 +1,16 @@
 <template name="RecipeDetail">
+
   <h1>{{recipe.name}}</h1>
+
+  <h3>{{recipe.desc}}</h3>
+
+  {{#if(recipe.ingredients)}}
+    <h5>Ingredients:</h5>
+    <ul>
+      {{#each recipe.ingredients}}
+        <li>{{name}}: {{amount}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
 </template>

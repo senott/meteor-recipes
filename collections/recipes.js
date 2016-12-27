@@ -4,8 +4,8 @@ Recipes.allow({
   insert: function(userId, doc){
     return !!userId;
   },
-  update: function(){
-    return true;
+  update: function(userId, doc){
+    return !!userId;
   },
   remove: function(){
     return true;
@@ -61,6 +61,16 @@ RecipeSchema = new SimpleSchema({
     autoform: {
       type: "hidden"
     }
+  }
+});
+
+Meteor.methods({
+  toggleMenuItem: function(id, currentState){
+    Recipes.update(id, {
+      $set: {
+        inMenu: !currentState
+      }
+    })
   }
 });
 
