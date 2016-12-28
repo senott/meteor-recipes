@@ -70,7 +70,7 @@ Meteor.methods({
       $set: {
         inMenu: !currentState
       }
-    })
+    });
   }
 });
 
